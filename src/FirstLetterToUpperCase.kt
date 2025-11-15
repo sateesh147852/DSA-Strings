@@ -4,5 +4,16 @@ fun main() {
 
 private fun firstLetterToUpperCase(str: String) {
     if (str.isEmpty()) return
-    var charArray = str.toCharArray()
+    val charArray = str.toCharArray()
+    var newWord = true
+
+    for (i in charArray.indices) {
+        if (charArray[i] == ' ') {
+            newWord = true
+        } else if (newWord) {
+            charArray[i] = charArray[i].uppercaseChar()
+            newWord = false
+        }
+    }
+    println(String(charArray))
 }
